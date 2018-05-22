@@ -9,6 +9,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     config.vm.network :forwarded_port, guest: 9083, host: 9083
     config.vm.define "node#{i}" do |node|
         node.vm.box = 'ubuntu/xenial64'
+        node.vm.box_url = "http://cloud-images.ubuntu.com/xenial/current/xenial-server-cloudimg-amd64-vagrant.box"
+
         config.vm.define :node1 do |t|
         end
         node.vm.provider 'virtualbox' do |v|
